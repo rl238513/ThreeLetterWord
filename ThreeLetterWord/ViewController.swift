@@ -22,13 +22,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         getAndSetCurrentLetter()
     }
-
     
-    
-    
-    @IBAction func onTap(_ sender: Any) {
-        
+    @IBAction func onTap(_ sender: UITapGestureRecognizer) {
+        let selectedPoint = sender.location(in: view)
+        for label in letterLable{
+            if label.frame.contains(selectedPoint){
+                label.text = "\(currentLetter!)"
+            }
+        }
+        counter += 1
+        if counter > 25{
+            counter = 0
+        }
+        getAndSetCurrentLetter()
     }
+    
     func getAndSetCurrentLetter(){
         currentLetter = letters[counter]
         currentLetterLable.text = currentLetter
