@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         }
         counter += 1
         if counter > 25{
-            counter = 0
+            counter = resetCounter()
         }
         getAndSetCurrentLetter()
     }
@@ -41,5 +41,21 @@ class ViewController: UIViewController {
         currentLetter = letters[counter]
         currentLetterLable.text = currentLetter
     }
+    
+    func resetCounter() -> Int {
+        let alert = UIAlertController(title: "resetting counter", message: nil, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            for label in self.letterLable{
+                lable.text = "?"
+            }
+            alert.addAction(action)
+            present(alert, animater: true, completion: nil)
+            return 0
+        }
+    }
+    
+    
+    
+    
+    
 }
-
