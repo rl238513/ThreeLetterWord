@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet var letterLable: [UILabel]!
     @IBOutlet weak var currentLetterLable: UILabel!
     
@@ -46,12 +46,12 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "resetting counter", message: nil, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
             for label in self.letterLable{
-                lable.text = "?"
+                label.text = "?"
             }
-            alert.addAction(action)
-            present(alert, animater: true, completion: nil)
-            return 0
         }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        return 0
     }
     
     
